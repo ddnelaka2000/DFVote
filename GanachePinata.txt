@@ -1,0 +1,37 @@
+# Connect to Ganache
+web3 = Web3(Web3.HTTPProvider('http://127.0.0.1:7545'))
+contract_address = '0xd31758cE20c66DFa220C787eBc6A7Fb5CEb07a5e'
+contract_abi = json.loads([
+    {
+      "inputs": [],
+      "name": "ipfsHash",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function",
+      "constant": true
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "_ipfsHash",
+          "type": "string"
+        }
+      ],
+      "name": "storeIPFSHash",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ])
+contract = web3.eth.contract(address=contract_address, abi=contract_abi)
+
+# Pinata API keys
+PINATA_API_KEY = '6cdb21ead5451ddb9a89'
+PINATA_API_SECRET = 'c9e7cec4981203c0f58395aecd7ca67e6e193688ad2bf137facf438be3283fe9'
